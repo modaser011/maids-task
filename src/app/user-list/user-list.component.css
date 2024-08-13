@@ -1,0 +1,9 @@
+.page-link,
+.card__col {
+    cursor: pointer;
+}
+
+.card__col:hover {
+    transform: scale3d(1.07, 1.07, 1.07);
+    transition: all.3s ease-in-out;
+}

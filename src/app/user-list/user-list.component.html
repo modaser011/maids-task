@@ -1,0 +1,20 @@
+<div class="container">
+    <div *ngIf="isLoading" class="loader">Loading...</div>
+    <div class="row mt-3" *ngIf="!isLoading">
+        <div class="col-md-4 mb-5 card__col" *ngFor="let user of users">
+            <div class="card" (click)="viewUser(user.id)">
+                <img [src]="user.avatar" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav *ngIf="!isLoading">
+        <ul class="pagination mb-4 d-flex justify-content-center">
+            <li class="page-item mb-4" *ngFor="let page of [].constructor(totalPages); let i = index" (click)="fetchUsers(i + 1)">
+                <a class="page-link">{{ i + 1 }}</a>
+            </li>
+        </ul>
+    </nav>
+</div>
